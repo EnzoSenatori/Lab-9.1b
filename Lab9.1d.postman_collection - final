@@ -14,12 +14,14 @@
         {
           "listen": "test",
           "script": {
-            "type": "text/javascript",
             "exec": [
               "pm.test(\"Status code is 200\", function () {",
               "    pm.response.to.have.status(200);",
               "});"
-            ]
+            ],
+            "type": "text/javascript",
+            "packages": {},
+            "requests": {}
           }
         }
       ],
@@ -27,14 +29,15 @@
         "method": "GET",
         "header": [],
         "url": {
-          "raw": "postman-echo.com/get",
+          "raw": "http://127.0.0.1:5000",
+          "protocol": "http",
           "host": [
-            "postman-echo",
-            "com"
+            "127",
+            "0",
+            "0",
+            "1"
           ],
-          "path": [
-            "get"
-          ]
+          "port": "5000"
         },
         "description": "This is a GET request and it is used to \"get\" data from an endpoint. There is no request body for a GET request, but you can use query parameters to help specify the resource you want data on (e.g., in this request, we have `id=1`).\n\nA successful GET response will have a `200 OK` status, and should include some kind of response body - for example, HTML web content or JSON data."
       },
@@ -46,13 +49,15 @@
         {
           "listen": "test",
           "script": {
-            "type": "text/javascript",
             "exec": [
               "pm.test(\"Successful POST request\", function () {",
               "    pm.expect(pm.response.code).to.be.oneOf([200, 201]);",
               "});",
               ""
-            ]
+            ],
+            "type": "text/javascript",
+            "packages": {},
+            "requests": {}
           }
         }
       ],
@@ -61,7 +66,7 @@
         "header": [],
         "body": {
           "mode": "raw",
-          "raw": "{\n\t\"name\": \"Add your name in the body\"\n}",
+          "raw": "{\n\t\"texto\": \"Hello, World!\"\n}",
           "options": {
             "raw": {
               "language": "json"
@@ -69,13 +74,17 @@
           }
         },
         "url": {
-          "raw": "postman-echo.com/post",
+          "raw": "http://127.0.0.1:5000/mensagens",
+          "protocol": "http",
           "host": [
-            "postman-echo",
-            "com"
+            "127",
+            "0",
+            "0",
+            "1"
           ],
+          "port": "5000",
           "path": [
-            "post"
+            "mensagens"
           ]
         },
         "description": "This is a POST request, submitting data to an API via the request body. This request submits JSON data, and the data is reflected in the response.\n\nA successful POST request typically returns a `200 OK` or `201 Created` response code."
@@ -86,7 +95,21 @@
       "name": "Listar mensagens/GET",
       "request": {
         "method": "GET",
-        "header": []
+        "header": [],
+        "url": {
+          "raw": "http://127.0.0.1:5000/mensagens",
+          "protocol": "http",
+          "host": [
+            "127",
+            "0",
+            "0",
+            "1"
+          ],
+          "port": "5000",
+          "path": [
+            "mensagens"
+          ]
+        }
       },
       "response": []
     },
@@ -94,23 +117,68 @@
       "name": "Obter mensagem/GET",
       "request": {
         "method": "GET",
-        "header": []
+        "header": [],
+        "url": {
+          "raw": "http://127.0.0.1:5000/mensagens/1",
+          "protocol": "http",
+          "host": [
+            "127",
+            "0",
+            "0",
+            "1"
+          ],
+          "port": "5000",
+          "path": [
+            "mensagens",
+            "1"
+          ]
+        }
       },
       "response": []
     },
     {
       "name": "Atualizar mensagem/PUT",
       "request": {
-        "method": "GET",
-        "header": []
+        "method": "PUT",
+        "header": [],
+        "url": {
+          "raw": "http://127.0.0.1:5000/mensagens/1",
+          "protocol": "http",
+          "host": [
+            "127",
+            "0",
+            "0",
+            "1"
+          ],
+          "port": "5000",
+          "path": [
+            "mensagens",
+            "1"
+          ]
+        }
       },
       "response": []
     },
     {
       "name": "Deletar mensagem/DELETE",
       "request": {
-        "method": "GET",
-        "header": []
+        "method": "DELETE",
+        "header": [],
+        "url": {
+          "raw": "http://127.0.0.1:5000/mensagens/1",
+          "protocol": "http",
+          "host": [
+            "127",
+            "0",
+            "0",
+            "1"
+          ],
+          "port": "5000",
+          "path": [
+            "mensagens",
+            "1"
+          ]
+        }
       },
       "response": []
     }
